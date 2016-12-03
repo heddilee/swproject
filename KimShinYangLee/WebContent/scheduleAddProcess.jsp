@@ -4,11 +4,11 @@
 <%
 	request.setCharacterEncoding("euc-kr");
 	
+	usingDB db = new usingDB();
 	Class.forName("com.mysql.jdbc.Driver");
-	
-	String url = "jdbc:mysql://127.0.0.1:3306/swproject?useSSL=false";
-	String dbuser = "swproject";
-	String dbpass = "uh129921";
+	String url = db.url;
+	String dbuser = db.dbuser;
+	String dbpass = db.dbpass;
 	String date = request.getParameter("date");
 	String description = request.getParameter("description");
 	int max = 0;

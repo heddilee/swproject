@@ -25,17 +25,18 @@
 
 <%
 	String sessionId = (String) session.getAttribute("id");
-	if (sessionId == null) {
+	if (sessionId != null) {
 		%><script>
 		window.alert("로그인 하세요.");
 		location.href = "../main.jsp";
 		</script><%
 	}
 	
+	usingDB db = new usingDB();
 	Class.forName("com.mysql.jdbc.Driver");
-	String url = "jdbc:mysql://127.0.0.1:3306/swproject?useSSL=false";
-	String dbuser = "swproject";
-	String dbpass = "uh129921";
+	String url = db.url;
+	String dbuser = db.dbuser;
+	String dbpass = db.dbpass;
 	
 	try {
 		Connection conn = DriverManager.getConnection(url, dbuser, dbpass);
