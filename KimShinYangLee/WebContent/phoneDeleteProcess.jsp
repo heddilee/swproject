@@ -6,9 +6,9 @@
 
 	Class.forName("com.mysql.jdbc.Driver");
 
-	String url = "jdbc:mysql://127.0.0.1:3306/swproject?useSSL=false";
+	String url = "jdbc:mysql://127.0.0.1:3306/KimShinYangLee?useSSL=false";
 	String dbuser = "swproject";
-	String dbpass = "uh129921";
+	String dbpass = "12345";
 	int order = Integer.parseInt(request.getParameter("order"));
 
 	try {
@@ -26,5 +26,5 @@
 	}
 %>
 <script language=javascript>
-	location.href="scheduleView.jsp"
+	location.href="phoneBookView.jsp"
 </script>

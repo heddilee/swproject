@@ -28,8 +28,8 @@
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
-		pstmt.setString(1, date);
-		pstmt.setString(2, description);
+		pstmt.setString(1, phoneName);
+		pstmt.setString(2, phoneNumber);
 		pstmt.setInt(3, max+1);
 		
 		pstmt.execute();
@@ -40,5 +40,5 @@
 	}
 %>
 <script language=javascript>
-	location.href="scheduleView.jsp"
+	location.href="phoneBookView.jsp"
 </script>
