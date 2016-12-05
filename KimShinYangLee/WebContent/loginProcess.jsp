@@ -44,7 +44,7 @@
                      style="padding: 3px" value=<%
       if(id!=null){ // ID있으면 %>
                      <%=id%> <%//입력창에 뿌려줌 %> 
-                     <%} else {//없다면 %> 
+                     <%} else {//없다면dfsafsfd %> 
                      <%="" %>
                      <%//아무것도 표시하지 않음 %> 
                      <%} %> 
