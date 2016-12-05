@@ -72,7 +72,7 @@
 					<td colspan="2"> </td>
 				</tr>
 				<tr align="center">
-					<td colspan="2"> <input type="submit" value="확인" OnClick="javascript:writeCheck();"> </td>
+					<td colspan="2"> <input type="button" value="확인" OnClick="javascript:writeCheck();"> </td>
 				</tr>
 			</table>
 		</form>
