@@ -4,11 +4,11 @@
 <%
 	request.setCharacterEncoding("euc-kr");
 
+	usingDB db = new usingDB();
 	Class.forName("com.mysql.jdbc.Driver");
-
-	String url = "jdbc:mysql://127.0.0.1:3306/KimShinYangLee?useSSL=false";
-	String dbuser = "swproject";
-	String dbpass = "12345";
+	String url = db.url;
+	String dbuser = db.dbuser;
+	String dbpass = db.dbpass;
 	int order = Integer.parseInt(request.getParameter("order"));
 
 	try {
