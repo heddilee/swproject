@@ -2,25 +2,26 @@
     pageEncoding="EUC-KR"%>
     
 <script language = "javascript">
-    function writeCheck() {
-    	var form = document.writeform;
-    	if (!form.phoneName.value && !form.phoneNumber.value) {
-    		alert("빈칸을 채워 주세요");
-    		form.phoneName.focus();
-    		return;
-    	}
-    	if (!form.phoneName.value) {
-    		alert("이름를 입력해 주세요");
-    		form.phoneName.focus();
-    		return;
-    	}
-    	if (!form.phoneNumber.value) {
-    		alert("번호를 입력해 주세요");
-    		form.phoneNumber.focus();
-    		return;
-    	}
-    	form.submit();
+
+function writeCheck() {
+    var form = document.writeform;
+    if (!form.phoneName.value && !form.phoneNumber.value) {
+    	alert("빈칸을 채워 주세요");
+    	form.phoneName.focus();
+    	return;
     }
+    if (!form.phoneName.value) {
+    	alert("이름를 입력해 주세요");
+    	form.phoneName.focus();
+    	return;
+    }
+    if (!form.phoneNumber.value) {
+    	alert("번호를 입력해 주세요");
+    	form.phoneNumber.focus();
+    	return;
+    }
+    form.submit();
+}
 </script>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
