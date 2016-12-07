@@ -2,14 +2,11 @@
 <%@ page import="java.sql.*"%>
 <%
 	request.setCharacterEncoding("euc-kr");
-	
 	usingDB db = new usingDB();
 	Class.forName("com.mysql.jdbc.Driver");
-
 	String url = db.url;
 	String dbuser = db.dbuser;
 	String dbpass = db.dbpass;
-
 	String date = request.getParameter("date");
 	String description = request.getParameter("description");
 	int max = 0;
@@ -26,7 +23,6 @@
 		sql = "INSERT INTO scheduleTable(scheduleDate, scheduleDescription, scheduleOrder) VALUES(?,?,?)";
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		
 		pstmt.setString(1, phoneName);
 		pstmt.setString(2, phoneNumber);
 		pstmt.setInt(3, max+1);
