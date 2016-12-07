@@ -8,7 +8,7 @@
 	
 	String url = "jdbc:mysql://127.0.0.1:3306/swproject?useSSL=false";
 	String dbuser = "swproject";
-	String dbpass = "uh129921";
+	String dbpass = "12345";
 	String date = request.getParameter("date");
 	String description = request.getParameter("description");
 	int max = 0;
