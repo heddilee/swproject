@@ -1,12 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ page import="java.sql.*"%>
+<%
+	request.setCharacterEncoding("euc-kr");
 
-</body>
-</html>
+	usingDB db = new usingDB();
+	Class.forName("com.mysql.jdbc.Driver");
+	String url = db.url;
+	String dbuser = db.dbuser;
+	String dbpass = db.dbpass;
+	int order = Integer.parseInt(request.getParameter("order"));
+
+	try {
+		Connection conn = DriverManager.getConnection(url, dbuser, dbpass);
+		Statement stmt = conn.createStatement();
+	
+		String sql = "DELETE FROM noteTable WHERE noteOrder="+order;
+		stmt.executeUpdate(sql);
+	
+		stmt.close();
+		conn.close();
+		
+	} catch(SQLException e) {
+		out.println(e.toString());
+	}
+%>
+<script language=javascript>
+	location.href="noteView.jsp"
+</script>
