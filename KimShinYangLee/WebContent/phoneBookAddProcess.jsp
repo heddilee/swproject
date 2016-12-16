@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="java.sql.*"%>
+<%@ page import="db1.UsingDB" %>
 <%
 	request.setCharacterEncoding("euc-kr");
-	usingDB db = new usingDB();
+	UsingDB db = new UsingDB();
 	Class.forName("com.mysql.jdbc.Driver");
-	String url = db.url;
-	String dbuser = db.dbuser;
-	String dbpass = db.dbpass;
+	String url = db.getUrl();
+	String dbuser = db.getDbuser();
+	String dbpass = db.getDbpass();
 	String date = request.getParameter("date");
 	String description = request.getParameter("description");
 	int max = 0;

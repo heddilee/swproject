@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ page import="java.sql.*, java.text.SimpleDateFormat, java.util.Date" %>
+<%@ page import="db1.UsingDB" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -35,12 +36,12 @@
 		</script><%
 	}
 	
-	usingDB db = new usingDB();
+	UsingDB db = new UsingDB();
 	
 	Class.forName("com.mysql.jdbc.Driver");
-	String url = db.url;
-	String dbuser = db.dbuser;
-	String dbpass = db.dbpass;
+	String url = db.getUrl();
+	String dbuser = db.getDbuser();
+	String dbpass = db.getDbpass();
 	
 	try {
 		Connection conn = DriverManager.getConnection(url, dbuser, dbpass);
