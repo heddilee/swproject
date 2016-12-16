@@ -37,7 +37,7 @@
 	</header>
 	<section id = "main_section">
 	<article class = "menu_title">
-		<h2>스케쥴</h2>
+		<h2>노트</h2>
 	</article>
 	<article>
 		<form name=writeform method=post action="noteAddProcess.jsp">

@@ -23,7 +23,7 @@
 			max = rs.getInt(1);
 		}
 		
-		sql = "INSERT INTO noteTable(noteDescription, noteOrder) VALUES(?,?,?)";
+		sql = "INSERT INTO noteTable(noteDescription, noteOrder) VALUES(?,?)";
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
