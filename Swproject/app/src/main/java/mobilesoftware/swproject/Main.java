@@ -14,17 +14,17 @@ public class Main extends AppCompatActivity {
     }
 
     public void phoneBookClick(View v) {
-        Intent intent = new Intent(Main.this, phoneBookView.class);
+        Intent intent = new Intent(this, phoneBookView.class);
         startActivity(intent);
     }
 
     public void scheduleClick(View v) {
-        Intent intent = new Intent(Main.this, scheduleView.class);
+        Intent intent = new Intent(this, scheduleView.class);
         startActivity(intent);
     }
 
     public void noteClick(View v) {
-        Intent intent = new Intent(Main.this, noteView.class);
+        Intent intent = new Intent(this, noteView.class);
         startActivity(intent);
     }
 }

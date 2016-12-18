@@ -13,6 +13,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
         android:orientation="horizontal">
 
         <Button
@@ -20,27 +21,50 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="전화번호부"
-            android:onClick="phoneBookClick "/>
+            android:onClick="phoneBookClick"/>
 
         <Button
             android:id="@+id/scheduleBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="스케쥴"
-            android:onClick="scheduleClick "/>
+            android:onClick="scheduleClick"/>
 
         <Button
             android:id="@+id/noteBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="노트"
-            android:onClick="noteClick "/>
+            android:onClick="noteClick"/>
 
     </LinearLayout>
 
-    <TextView
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="날짜"/>
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="내용"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="300dp" />
+
+    <Button
+        android:id="@+id/scheduleAddBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="스케쥴뷰"/>
+        android:text="스케쥴 추가"
+        android:onClick="scheduleAddClick"/>
 
 </LinearLayout>

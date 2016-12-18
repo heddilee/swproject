@@ -14,12 +14,15 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE contacts ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, tel TEXT, email TEXT);");
-        //db.execSQL("CREATE TABLE contacts ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, tel TEXT);");
+        db.execSQL("CREATE TABLE phoneTable ( _id INTEGER PRIMARY KEY AUTOINCREMENT, phoneNumber TEXT, phoneName TEXT);");
+        db.execSQL("CREATE TABLE scheduleTable ( _id INTEGER PRIMARY KEY AUTOINCREMENT, scheduleDate TEXT, scheduleDescription TEXT);");
+        db.execSQL("CREATE TABLE noteTable ( _id INTEGER PRIMARY KEY AUTOINCREMENT, noteContent TEXT);");
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS contacts");
+        db.execSQL("DROP TABLE IF EXISTS phoneTable");
+        db.execSQL("DROP TABLE IF EXISTS scheduleTable");
+        db.execSQL("DROP TABLE IF EXISTS noteTable");
         onCreate(db);
     }
 }
