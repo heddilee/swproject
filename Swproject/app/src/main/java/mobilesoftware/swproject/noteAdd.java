@@ -55,7 +55,7 @@ public class noteAdd extends Activity {
         content = noteContent.getText().toString();
 
         if(content.getBytes().length <= 0)
-            description = null;
+            content = null;
 
         Intent intent = new Intent(this, noteAddProcess.class);
         intent.putExtra("noteContent", content);

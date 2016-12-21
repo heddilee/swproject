@@ -54,12 +54,11 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:singleLine="true"
         android:id="@+id/noteContent"
-        android:layout_gravity="center_horizontal" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLength="35"
+        android:singleLine="true" />
 
     <Button
         android:id="@+id/addBtn"
