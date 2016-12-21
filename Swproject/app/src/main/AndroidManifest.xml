@@ -17,10 +17,13 @@
         </activity>
         <activity android:name=".scheduleView" />
         <activity android:name=".scheduleAdd" />
+        <activity android:name=".scheduleDeleteProcess" />
         <activity android:name=".noteView" />
         <activity android:name=".noteAdd" />
+        <activity android:name=".noteDeleteProcess" />
         <activity android:name=".phoneBookView" />
-        <activity android:name=".phoneBookAdd"></activity>
+        <activity android:name=".phoneBookAdd">
+        <activity android:name=".phoneBookDeleteProcess" /></activity>
     </application>
 
 </manifest>

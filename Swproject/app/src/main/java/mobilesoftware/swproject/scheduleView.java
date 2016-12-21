@@ -22,7 +22,6 @@ public class scheduleView extends ActionBarActivity {
     SQLiteDatabase db;
     Cursor cursor;
     ListView list;
-    //static final int GET_STRING = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,24 +30,16 @@ public class scheduleView extends ActionBarActivity {
 
         list = (ListView) findViewById(R.id.list);
         helper = new DBHelper(this);
-        db = helper.getWritableDatabase();
-        /*try {
+        try {
             db = helper.getWritableDatabase();
         }
         catch (SQLiteException ex) {
             db = helper.getReadableDatabase();
-        }*/
+        }
         cursor = db.rawQuery("SELECT * FROM scheduleTable", null);
         startManagingCursor(cursor);
         CustomList adapter = new CustomList(this, cursor);
         list.setAdapter(adapter);
-
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                cursor.moveToPosition(position);
-            }
-        });
     }
 
     public class CustomList extends CursorAdapter {
@@ -65,13 +56,22 @@ public class scheduleView extends ActionBarActivity {
         }
 
         @Override
-        public void bindView(View view, Context context, Cursor cursor) {
+        public void bindView(View view, Context context, final Cursor cursor) {
             final TextView date = (TextView) view.findViewById(R.id.date);
             final TextView description = (TextView) view.findViewById(R.id.description);
             final Button delete = (Button) view.findViewById(R.id.deleteBtn);
 
             date.setText(cursor.getString(cursor.getColumnIndex("scheduleDate")));
             description.setText(cursor.getString(cursor.getColumnIndex("scheduleDescription")));
+
+            delete.setOnClickListener(new Button.OnClickListener() {
+                public void onClick(View v) {
+                    int id = cursor.getInt(0);
+                    Intent intent = new Intent(scheduleView.this, scheduleDeleteProcess.class);
+                    intent.putExtra("id",id);
+                    startActivity(intent);
+                }
+            });
         }
     }
 
@@ -93,7 +93,5 @@ public class scheduleView extends ActionBarActivity {
     public void scheduleAddClick(View v) {
         Intent intent = new Intent(this, scheduleAdd.class);
         startActivity(intent);
-        //startActivityForResult(intent, GET_STRING);
     }
-
 }

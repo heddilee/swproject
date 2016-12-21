@@ -20,7 +20,6 @@
         android:id="@+id/deleteBtn"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:text="삭제"
-        android:onClick="scheduleDeleteClick"/>
+        android:text="삭제"/>
 
 </LinearLayout>

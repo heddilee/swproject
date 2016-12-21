@@ -53,9 +53,5 @@ public class scheduleAdd extends Activity {
 
         Intent intent = new Intent(this, scheduleView.class);
         startActivity(intent);
-
-        //Intent intent = new Intent();
-        //setResult(RESULT_OK, intent);
-        //finish();
     }
 }
