@@ -15,7 +15,7 @@ public class scheduleAdd extends Activity {
     SQLiteDatabase db;
     EditText scheduleDate, scheduleDescription;
     static final int REQUEST_ACT = 1;
-    String date;
+    int date;
     String description;
 
     @Override
@@ -49,9 +49,17 @@ public class scheduleAdd extends Activity {
     }
 
     public void scheduleAddClick(View target) {
-        date = scheduleDate.getText().toString();
+        String dateString = scheduleDate.getText().toString();
         description = scheduleDescription.getText().toString();
-        //date = Integer.parseInt(intent.getStringExtra("scheduleDate"));
+
+        if(dateString.getBytes().length <= 0)
+            date = 0;
+        else
+            date = Integer.parseInt(dateString);
+
+        if(description.getBytes().length <= 0)
+            description = null;
+
         Intent intent = new Intent(this, scheduleAddProcess.class);
         intent.putExtra("scheduleDate", date);
         intent.putExtra("scheduleDescription", description);

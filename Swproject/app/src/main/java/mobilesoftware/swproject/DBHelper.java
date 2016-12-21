@@ -15,7 +15,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE phoneTable ( _id INTEGER PRIMARY KEY AUTOINCREMENT, phoneNumber TEXT, phoneName TEXT);");
-        db.execSQL("CREATE TABLE scheduleTable ( _id INTEGER PRIMARY KEY AUTOINCREMENT, scheduleDate TEXT, scheduleDescription TEXT);");
+        db.execSQL("CREATE TABLE scheduleTable ( _id INTEGER PRIMARY KEY AUTOINCREMENT, scheduleDate DATE, scheduleDescription TEXT);");
         db.execSQL("CREATE TABLE noteTable ( _id INTEGER PRIMARY KEY AUTOINCREMENT, noteContent TEXT);");
     }
 
