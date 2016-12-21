@@ -7,19 +7,28 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="mobilesoftware.swproject.phoneBookView">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingBottom="16dp"
         android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/mainBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="메인페이지"
+            android:onClick="mainClick"/>
 
         <Button
             android:id="@+id/phoneBookBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="전화번호부"
-            android:onClick="phoneBookClick"/>
+            android:text="전화번호부"/>
 
         <Button
             android:id="@+id/scheduleBtn"
@@ -37,9 +46,34 @@
 
     </LinearLayout>
 
-    <TextView
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="이름"/>
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="전화번호"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="430dp" />
+
+    <Button
+        android:id="@+id/scheduleAddBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="전화뷰"/>
+        android:layout_gravity="center"
+        android:text="전화번호 작성"
+        android:onClick="phoneBookAddClick"/>
 
 </LinearLayout>
+
