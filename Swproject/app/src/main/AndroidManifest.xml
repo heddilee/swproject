@@ -17,13 +17,16 @@
         </activity>
         <activity android:name=".scheduleView" />
         <activity android:name=".scheduleAdd" />
+        <activity android:name=".scheduleAddProcess" />
         <activity android:name=".scheduleDeleteProcess" />
         <activity android:name=".noteView" />
         <activity android:name=".noteAdd" />
+        <activity android:name=".noteAddProcess" />
         <activity android:name=".noteDeleteProcess" />
         <activity android:name=".phoneBookView" />
-        <activity android:name=".phoneBookAdd">
-        <activity android:name=".phoneBookDeleteProcess" /></activity>
+        <activity android:name=".phoneBookAdd" />
+        <activity android:name=".phoneBookAddProcess" />
+        <activity android:name=".phoneBookDeleteProcess" />
     </application>
 
 </manifest>

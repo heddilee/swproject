@@ -10,6 +10,7 @@ public class scheduleDeleteProcess extends Activity {
     DBHelper helper;
     SQLiteDatabase db;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();

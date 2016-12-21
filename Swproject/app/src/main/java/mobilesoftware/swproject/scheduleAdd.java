@@ -14,6 +14,9 @@ public class scheduleAdd extends Activity {
     DBHelper helper;
     SQLiteDatabase db;
     EditText scheduleDate, scheduleDescription;
+    static final int REQUEST_ACT = 1;
+    String date;
+    String description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +49,23 @@ public class scheduleAdd extends Activity {
     }
 
     public void scheduleAddClick(View target) {
-        String date = scheduleDate.getText().toString();
-        String description = scheduleDescription.getText().toString();
-        db.execSQL("INSERT INTO scheduleTable VALUES (null, '" + date + "', '" + description + "');");
-        Toast.makeText(getApplicationContext(), "성공적으로 추가되었음", Toast.LENGTH_SHORT).show();
+        date = scheduleDate.getText().toString();
+        description = scheduleDescription.getText().toString();
+        //date = Integer.parseInt(intent.getStringExtra("scheduleDate"));
+        Intent intent = new Intent(this, scheduleAddProcess.class);
+        intent.putExtra("scheduleDate", date);
+        intent.putExtra("scheduleDescription", description);
+        startActivityForResult(intent,REQUEST_ACT);
+    }
 
-        Intent intent = new Intent(this, scheduleView.class);
-        startActivity(intent);
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_ACT) {
+            if (resultCode == RESULT_OK) {
+                db.execSQL("INSERT INTO scheduleTable VALUES (null, '" + date + "', '" + description + "');");
+                Toast.makeText(getApplicationContext(), "성공적으로 추가되었음", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, scheduleView.class);
+                startActivity(intent);
+            }
+        }
     }
 }
