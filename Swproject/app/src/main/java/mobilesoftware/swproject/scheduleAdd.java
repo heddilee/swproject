@@ -33,6 +33,11 @@ public class scheduleAdd extends Activity {
         }
     }
 
+    public void mainClick(View v) {
+        Intent intent = new Intent(this, Main.class);
+        startActivity(intent);
+    }
+
     public void phoneBookClick(View v) {
         Intent intent = new Intent(scheduleAdd.this, phoneBookView.class);
         startActivity(intent);

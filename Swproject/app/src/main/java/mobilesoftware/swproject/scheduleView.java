@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class scheduleView extends ActionBarActivity {
     DBHelper helper;
@@ -60,19 +61,25 @@ public class scheduleView extends ActionBarActivity {
             final TextView date = (TextView) view.findViewById(R.id.date);
             final TextView description = (TextView) view.findViewById(R.id.description);
             final Button delete = (Button) view.findViewById(R.id.deleteBtn);
+            final int id;
 
             date.setText(cursor.getString(cursor.getColumnIndex("scheduleDate")));
             description.setText(cursor.getString(cursor.getColumnIndex("scheduleDescription")));
+            id = Integer.parseInt(cursor.getString(cursor.getColumnIndex("_id")));
 
             delete.setOnClickListener(new Button.OnClickListener() {
                 public void onClick(View v) {
-                    int id = cursor.getInt(0);
                     Intent intent = new Intent(scheduleView.this, scheduleDeleteProcess.class);
                     intent.putExtra("id",id);
                     startActivity(intent);
                 }
             });
         }
+    }
+
+    public void mainClick(View v) {
+        Intent intent = new Intent(this, Main.class);
+        startActivity(intent);
     }
 
     public void phoneBookClick(View v) {
