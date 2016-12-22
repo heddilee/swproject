@@ -6,9 +6,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import static android.R.id.edit;
 
 public class noteAdd extends Activity {
     DBHelper helper;
@@ -23,6 +26,13 @@ public class noteAdd extends Activity {
         setContentView(R.layout.activity_note_add);
         helper = new DBHelper(this);
         noteContent = (EditText) findViewById(R.id.noteContent);
+
+
+        InputFilter[] FilterArray = new InputFilter[1];
+        FilterArray[0] = new InputFilter.LengthFilter(35);
+
+        noteContent.setFilters(FilterArray);
+
         try {
             db = helper.getWritableDatabase();
         }

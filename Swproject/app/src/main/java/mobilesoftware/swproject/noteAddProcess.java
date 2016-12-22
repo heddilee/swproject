@@ -19,10 +19,18 @@ public class noteAddProcess extends Activity {
     }
 
     public void writeCheck(String content) {
-        if (content == null) {
+        if (isContentNull(content)) {
             Toast.makeText(getApplicationContext(), "내용을 채워 주세요.", Toast.LENGTH_SHORT).show();
             setResult(RESULT_CANCELED, intent);
             finish();
         }
     }
+
+    public boolean isContentNull(String content){
+        if (content == null)
+            return true;
+        else
+            return false;
+    }
 }
+
