@@ -20,20 +20,25 @@ public class phoneBookAddProcess extends Activity {
     }
 
     public void writeCheck(String number, String name) {
-        if(number == null && name == null){
-            Toast.makeText(getApplicationContext(), "빈칸을 채워주세요.", Toast.LENGTH_SHORT).show();
+        if(isBothNullTest(number, name)){
             setResult(RESULT_CANCELED, intent);
             finish();
+        }
+    }
+
+    public boolean isBothNullTest(String number, String name){
+        if(number == null || name == null){
+            Toast.makeText(getApplicationContext(), "빈칸을 채워주세요.", Toast.LENGTH_SHORT).show();
+            return true;
         }
         else if(number == null) {
             Toast.makeText(getApplicationContext(), "번호를 작성해주세요.", Toast.LENGTH_SHORT).show();
-            setResult(RESULT_CANCELED, intent);
-            finish();
+            return true;
         }
         else if(name == null) {
             Toast.makeText(getApplicationContext(), "이름을 작성해주세요.", Toast.LENGTH_SHORT).show();
-            setResult(RESULT_CANCELED, intent);
-            finish();
+            return true;
         }
+        return false;
     }
 }
