@@ -58,13 +58,13 @@ public class phoneBookView extends ActionBarActivity {
 
         @Override
         public void bindView(View view, Context context, final Cursor cursor) {
-            final TextView number = (TextView) view.findViewById(R.id.number);
             final TextView name = (TextView) view.findViewById(R.id.name);
+            final TextView number = (TextView) view.findViewById(R.id.number);
             final Button delete = (Button) view.findViewById(R.id.deleteBtn);
             final int id;
 
-            number.setText(cursor.getString(cursor.getColumnIndex("phoneNumber")));
             name.setText(cursor.getString(cursor.getColumnIndex("phoneName")));
+            number.setText(cursor.getString(cursor.getColumnIndex("phoneNumber")));
             id = Integer.parseInt(cursor.getString(cursor.getColumnIndex("_id")));
 
             delete.setOnClickListener(new Button.OnClickListener() {

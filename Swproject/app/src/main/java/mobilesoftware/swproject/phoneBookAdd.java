@@ -15,7 +15,8 @@ public class phoneBookAdd extends Activity {
     SQLiteDatabase db;
     EditText phoneName, phoneNumber;
     static final int REQUEST_ACT = 1;
-    String name, number;
+    String number;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +60,7 @@ public class phoneBookAdd extends Activity {
 
         if(number.getBytes().length <= 0)
             number = null;
-
-        else if(name.getBytes().length <= 0)
+        if(name.getBytes().length <= 0)
             name = null;
 
         Intent intent = new Intent(this, phoneBookAddProcess.class);
