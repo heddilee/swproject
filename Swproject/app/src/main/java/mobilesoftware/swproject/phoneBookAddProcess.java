@@ -24,6 +24,12 @@ public class phoneBookAddProcess extends Activity {
             setResult(RESULT_CANCELED, intent);
             finish();
         }
+        if(isNotNumber(number)){
+            Toast.makeText(getApplicationContext(), "숫자를 입력해주세요.", Toast.LENGTH_SHORT).show();
+            setResult(RESULT_CANCELED, intent);
+            finish();
+
+        }
     }
 
     public boolean isBothNullTest(String number, String name){
@@ -38,6 +44,16 @@ public class phoneBookAddProcess extends Activity {
         else if(name == null) {
             Toast.makeText(getApplicationContext(), "이름을 작성해주세요.", Toast.LENGTH_SHORT).show();
             return true;
+        }
+        return false;
+    }
+
+    public boolean isNotNumber(String number){
+        for(int i = 0 ; i < number.length(); i++ ) {
+            char c = number.charAt(i);
+            if (c < 48 || c > 57) { //문자인경우
+                return true;
+            }
         }
         return false;
     }

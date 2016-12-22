@@ -22,7 +22,7 @@ public class allTest {
     @Test
     public void testWriteCheck() {
         String nameTest = "KimShinYangLee";
-        String numberTest = "010282312347899";
+        String numberTest = "010282312347";
         phoneBookAddProcess phonebook = new phoneBookAddProcess();
 
         assertFalse(phonebook.isBothNullTest(numberTest, nameTest));
@@ -41,4 +41,12 @@ public class allTest {
         String input = "hello";
         assertTrue(schedule.emptyEditTextCheck(input));
     }
+
+    @Test
+    public void  testisNotNumber() {
+        phoneBookAddProcess phonebook = new phoneBookAddProcess();
+        String input = "hello";
+        assertTrue(phonebook.isNotNumber(input));
+    }
+
 }

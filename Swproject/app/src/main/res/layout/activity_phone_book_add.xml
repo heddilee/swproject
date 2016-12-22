@@ -56,9 +56,9 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:ems="8"
-        android:maxLength="8"
+        android:inputType="textPersonName"
+        android:ems="20"
+        android:maxLength="20"
         android:id="@+id/phoneName" />
 
     <TextView
@@ -70,8 +70,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="11"
+        android:maxLength="11"
         android:id="@+id/phoneNumber" />
 
     <Button
