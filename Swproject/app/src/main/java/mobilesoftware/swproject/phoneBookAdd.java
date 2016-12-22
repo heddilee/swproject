@@ -15,8 +15,7 @@ public class phoneBookAdd extends Activity {
     SQLiteDatabase db;
     EditText phoneName, phoneNumber;
     static final int REQUEST_ACT = 1;
-    int number;
-    String name;
+    String name, number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,15 +54,13 @@ public class phoneBookAdd extends Activity {
     }
 
     public void phoneBookAddClick(View target) {
-        String numberString = phoneNumber.getText().toString();
+        number = phoneNumber.getText().toString();
         name = phoneName.getText().toString();
 
-        if(numberString.getBytes().length <= 0)
-            number = 0;
-        else
-            number = Integer.parseInt(numberString);
+        if(number.getBytes().length <= 0)
+            number = null;
 
-        if(name.getBytes().length <= 0)
+        else if(name.getBytes().length <= 0)
             name = null;
 
         Intent intent = new Intent(this, phoneBookAddProcess.class);
@@ -75,9 +72,9 @@ public class phoneBookAdd extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_ACT) {
             if (resultCode == RESULT_OK) {
-                db.execSQL("INSERT INTO phoneBookTable VALUES (null, '" + name + "', '" + number + "');");
+                db.execSQL("INSERT INTO phoneTable VALUES (null, '" + number + "', '" + name + "');");
                 Toast.makeText(getApplicationContext(), "성공적으로 추가되었음", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, scheduleView.class);
+                Intent intent = new Intent(this, phoneBookView.class);
                 startActivity(intent);
             }
         }

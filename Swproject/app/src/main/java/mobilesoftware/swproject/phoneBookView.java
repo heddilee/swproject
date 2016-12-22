@@ -27,7 +27,7 @@ public class phoneBookView extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_schedule_view);
+        setContentView(R.layout.activity_phone_book_view);
 
         list = (ListView) findViewById(R.id.list);
         helper = new DBHelper(this);
@@ -37,7 +37,7 @@ public class phoneBookView extends ActionBarActivity {
         catch (SQLiteException ex) {
             db = helper.getReadableDatabase();
         }
-        cursor = db.rawQuery("SELECT * FROM phoneBookTable", null);
+        cursor = db.rawQuery("SELECT * FROM phoneTable", null);
         startManagingCursor(cursor);
         CustomList adapter = new CustomList(this, cursor);
         list.setAdapter(adapter);
@@ -52,7 +52,7 @@ public class phoneBookView extends ActionBarActivity {
         @Override
         public View newView(Context context, Cursor cursor, ViewGroup parent) {
             LayoutInflater inflater = LayoutInflater.from(context);
-            View v = inflater.inflate(, parent, false);
+            View v = inflater.inflate(R.layout.phonebook_list_item, parent, false);
             return v;
         }
 
@@ -82,8 +82,8 @@ public class phoneBookView extends ActionBarActivity {
         startActivity(intent);
     }
 
-    public void phoneBookClick(View v) {
-        Intent intent = new Intent(this, phoneBookView.class);
+    public void scheduleClick(View v) {
+        Intent intent = new Intent(this, scheduleView.class);
         startActivity(intent);
     }
 
@@ -92,8 +92,8 @@ public class phoneBookView extends ActionBarActivity {
         startActivity(intent);
     }
 
-    public void scheduleAddClick(View v) {
-        Intent intent = new Intent(this, scheduleAdd.class);
+    public void phoneBookAddClick(View v) {
+        Intent intent = new Intent(this, phoneBookAdd.class);
         startActivity(intent);
     }
 }

@@ -58,6 +58,7 @@
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="8"
+        android:maxLength="8"
         android:id="@+id/scheduleDate" />
 
     <TextView

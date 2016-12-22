@@ -28,14 +28,14 @@
             android:id="@+id/phoneBookBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="전화번호부"
-            android:onClick="phoneBookClick"/>
+            android:text="전화번호부"/>
 
         <Button
             android:id="@+id/scheduleBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="스케쥴" />
+            android:text="스케쥴"
+            android:onClick="scheduleClick"/>
 
         <Button
             android:id="@+id/noteBtn"

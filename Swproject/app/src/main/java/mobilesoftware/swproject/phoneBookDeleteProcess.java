@@ -24,7 +24,7 @@ public class phoneBookDeleteProcess extends Activity {
             db = helper.getReadableDatabase();
         }
 
-        db.execSQL("DELETE FROM phoneBookTable WHERE _id = "+ id +";");
+        db.execSQL("DELETE FROM phoneTable WHERE _id = "+ id +";");
         intent = new Intent(this, phoneBookView.class);
         startActivity(intent);
     }
