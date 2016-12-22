@@ -10,4 +10,11 @@ public class ScheduleDateTest {
         int input = 20161029;
         assertTrue(schdule.isRightDateForm(input));
     }
+
+    @Test
+    public void  testEmptyEditTextCheck() {
+        scheduleAdd schedule = new scheduleAdd();
+        String input = "hello";
+        assertTrue(schedule.emptyEditTextCheck(input));
+    }
 }

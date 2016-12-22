@@ -57,18 +57,24 @@ public class scheduleAdd extends Activity {
         String dateString = scheduleDate.getText().toString();
         description = scheduleDescription.getText().toString();
 
-        if(dateString.getBytes().length <= 0)
+        if(!emptyEditTextCheck(dateString))
             date = 0;
         else
             date = Integer.parseInt(dateString);
 
-        if(description.getBytes().length <= 0)
+        if(!emptyEditTextCheck(description))
             description = null;
 
         Intent intent = new Intent(this, scheduleAddProcess.class);
         intent.putExtra("scheduleDate", date);
         intent.putExtra("scheduleDescription", description);
         startActivityForResult(intent,REQUEST_ACT);
+    }
+
+    public boolean emptyEditTextCheck(String string) {
+        if(string.getBytes().length <= 0)
+            return false;
+        return true;
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
