@@ -80,20 +80,24 @@ public class scheduleView extends ActionBarActivity {
     public void mainClick(View v) {
         Intent intent = new Intent(this, Main.class);
         startActivity(intent);
+        finish();
     }
 
     public void phoneBookClick(View v) {
         Intent intent = new Intent(this, phoneBookView.class);
         startActivity(intent);
+        finish();
     }
 
     public void noteClick(View v) {
         Intent intent = new Intent(this, noteView.class);
         startActivity(intent);
+        finish();
     }
 
     public void scheduleAddClick(View v) {
         Intent intent = new Intent(this, scheduleAdd.class);
         startActivity(intent);
+
     }
 }

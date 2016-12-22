@@ -80,16 +80,19 @@ public class phoneBookView extends ActionBarActivity {
     public void mainClick(View v) {
         Intent intent = new Intent(this, Main.class);
         startActivity(intent);
+        finish();
     }
 
     public void scheduleClick(View v) {
         Intent intent = new Intent(this, scheduleView.class);
         startActivity(intent);
+        finish();
     }
 
     public void noteClick(View v) {
         Intent intent = new Intent(this, noteView.class);
         startActivity(intent);
+        finish();
     }
 
     public void phoneBookAddClick(View v) {

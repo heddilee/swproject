@@ -13,7 +13,15 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingBottom="16dp"
         android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/mainBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="메인페이지"/>
 
         <Button
             android:id="@+id/phoneBookBtn"
@@ -34,8 +42,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="노트"
-            android:onClick="noteClick"/>
+            android:onClick="noteClick" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/textView" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원정보수정"
+            android:id="@+id/modifybtn"
+            android:onClick="modifyProcess" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="로그아웃"
+            android:id="@+id/logoutbtn"
+            android:onClick="logoutProcess" />
     </LinearLayout>
 
 </LinearLayout>
