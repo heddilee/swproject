@@ -25,13 +25,8 @@ public class noteAdd extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_add);
         helper = new DBHelper(this);
+
         noteContent = (EditText) findViewById(R.id.noteContent);
-
-
-        InputFilter[] FilterArray = new InputFilter[1];
-        FilterArray[0] = new InputFilter.LengthFilter(35);
-
-        noteContent.setFilters(FilterArray);
 
         try {
             db = helper.getWritableDatabase();
@@ -40,6 +35,7 @@ public class noteAdd extends Activity {
             db = helper.getReadableDatabase();
         }
     }
+
 
     public void mainClick(View v) {
         Intent intent = new Intent(this, Main.class);

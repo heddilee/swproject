@@ -60,7 +60,7 @@
     <ListView
         android:id="@+id/list"
         android:layout_width="fill_parent"
-        android:layout_height="430dp" />
+        android:layout_height="350dp" />
 
     <Button
         android:id="@+id/noteAddBtn"

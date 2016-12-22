@@ -24,10 +24,22 @@ public class noteAddProcess extends Activity {
             setResult(RESULT_CANCELED, intent);
             finish();
         }
+        if(CheckMaxLength(content)){
+            Toast.makeText(getApplicationContext(), "내용의 양이 많습니다. 줄여주세요.", Toast.LENGTH_SHORT).show();
+            setResult(RESULT_CANCELED, intent);
+            finish();
+        }
     }
 
     public boolean isContentNull(String content){
         if (content == null)
+            return true;
+        else
+            return false;
+    }
+
+    public boolean CheckMaxLength(String content){
+        if(content.getBytes().length > 35)
             return true;
         else
             return false;
