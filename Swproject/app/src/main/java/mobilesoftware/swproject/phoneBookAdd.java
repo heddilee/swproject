@@ -58,15 +58,21 @@ public class phoneBookAdd extends Activity {
         number = phoneNumber.getText().toString();
         name = phoneName.getText().toString();
 
-        if(number.getBytes().length <= 0)
+        if(!emptyEditTextCheck(number))
             number = null;
-        if(name.getBytes().length <= 0)
+        if(!emptyEditTextCheck(name))
             name = null;
 
         Intent intent = new Intent(this, phoneBookAddProcess.class);
         intent.putExtra("phoneNumber", number);
         intent.putExtra("phoneName", name);
         startActivityForResult(intent,REQUEST_ACT);
+    }
+
+    public boolean emptyEditTextCheck(String string) {
+        if(string.getBytes().length <= 0)
+            return false;
+        return true;
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

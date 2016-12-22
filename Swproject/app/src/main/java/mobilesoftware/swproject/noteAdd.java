@@ -60,12 +60,18 @@ public class noteAdd extends Activity {
     public void noteAddClick(View target) {
         content = noteContent.getText().toString();
 
-        if(content.getBytes().length <= 0)
+        if(!emptyEditTextCheck(content))
             content = null;
 
         Intent intent = new Intent(this, noteAddProcess.class);
         intent.putExtra("noteContent", content);
         startActivityForResult(intent,REQUEST_ACT);
+    }
+
+    public boolean emptyEditTextCheck(String string) {
+        if(string.getBytes().length <= 0)
+            return false;
+        return true;
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
