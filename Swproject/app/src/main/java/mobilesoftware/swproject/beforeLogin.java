@@ -59,11 +59,13 @@ public class beforeLogin extends AppCompatActivity {
 
 
         //Toast.makeText(beforeLogin.this,DBid,Toast.LENGTH_LONG).show();
+        // if (DBid.equals(id) && DBpass.equals(pass)) {
 
-        if (DBid.equals(id) && DBpass.equals(pass)) {
+        if (idCheck(DBid) && passCheck(DBpass)) {
             Toast.makeText(beforeLogin.this,"로그인에 성공하였습니다",Toast.LENGTH_LONG).show();
 
             Intent intent = new Intent(this, Main.class);
+            intent.putExtra("DBid",DBid );
             startActivity(intent);
             finish();
         }
@@ -71,6 +73,21 @@ public class beforeLogin extends AppCompatActivity {
             Toast.makeText(beforeLogin.this,"로그인실패",Toast.LENGTH_LONG).show();
         }
     }
+
+    public boolean idCheck(String inputId){
+        if(inputId.equals(id)){
+            return true;
+        }
+        else return false;
+    }
+
+    public boolean passCheck(String inputPass){
+        if(inputPass.equals(pass)){
+            return true;
+        }
+        else return false;
+    }
+
 
        // if(id.equals("hello")) {
          //   if(pass.equals("123")){

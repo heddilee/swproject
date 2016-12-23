@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * Created by Administrator on 2016-12-21.
@@ -20,6 +21,8 @@ public class memberChange extends AppCompatActivity {
     Cursor cursor;
     String DBid;
     String DBpass;
+    String nId;
+    String npass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,31 +53,55 @@ public class memberChange extends AppCompatActivity {
 
     }
 
+    //public boolean isLogin
+
     public void modify(View v){
 
         idview=(EditText)findViewById(R.id.newId);
         passview=(EditText)findViewById(R.id.newPass);
-        String nId=idview.getText().toString();
-        String npass=passview.getText().toString();
+        nId=idview.getText().toString();
+        npass=passview.getText().toString();
 
-        if (cursor != null)
-            cursor.moveToFirst();
+        String aa=isUserInputNull(nId,npass);
 
-        cursor = db.rawQuery("UPDATE contactsTable SET userid='"+nId+"', userpass='"+npass+"' where num='1';", null);
-       db.execSQL("UPDATE contactsTable SET userid='"+nId+"', userpass='"+npass+"' where num='1';");
-        //db.close();
+        if(aa.equals("ok")) {
+
+            if (cursor != null)
+                cursor.moveToFirst();
+
+            cursor = db.rawQuery("UPDATE contactsTable SET userid='" + nId + "', userpass='" + npass + "' where num='1';", null);
+            db.execSQL("UPDATE contactsTable SET userid='" + nId + "', userpass='" + npass + "' where num='1';");
+            //db.close();
         /*ContentValues args = new ContentValues();
         args.put("userid", nId);
         args.put("userpass", npass);*/
 
-
-
-
-        Intent intent = new Intent(this, Main.class);
-        startActivity(intent);
-
+            Intent intent = new Intent(this, Main.class);
+            startActivity(intent);
+            Toast.makeText(memberChange.this,"수정성공.",Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(memberChange.this,aa,Toast.LENGTH_LONG).show();
+        }
 
     }
+
+    public String isUserInputNull(String newid,String newpass){
+        if(newid.equals("") && newpass.equals("")){
+            return "회원정보를 입력해주세요.";
+        }
+        else if(newid.equals("")){
+            return "새아이디를 입력해주세요";
+        }
+        else if(newpass.equals("")){
+            return "새비밀번호를 입력해주세요";
+        }
+        else{
+            return "ok";
+        }
+    }
+
+
 
 
 

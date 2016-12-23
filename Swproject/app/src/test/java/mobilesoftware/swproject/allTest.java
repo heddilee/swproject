@@ -1,10 +1,30 @@
 package mobilesoftware.swproject;
 
 import org.junit.Test;
+
+import static android.R.id.input;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class allTest {
+    @Test
+    public void testUserNewInfoNull() {
+       memberChange member=new memberChange();
+       String isnull= member.isUserInputNull("","");
+        assertEquals("회원정보를 입력해주세요.",isnull);
+
+    }
+
+    @Test
+    public void testDBuserInfo() {
+        beforeLogin log = new beforeLogin();
+
+        String input = "ThisIsNotId";
+        assertFalse(log.idCheck(input));
+    }
+
     @Test
     public void testNoteContent() {
         noteAddProcess note = new noteAddProcess();

@@ -15,6 +15,14 @@ public class Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        idView=(TextView)findViewById(R.id.idshow);
+        Intent intent = getIntent();
+
+       String str = intent.getExtras().getString("DBid");
+
+
+
+      idView.setText(str+"님 환영합니다");
 
 
 
